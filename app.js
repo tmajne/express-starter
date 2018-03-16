@@ -11,6 +11,7 @@ let debug = require('debug')('http');
 let helmet = require('helmet');
 let logger = require('morgan');
 let path = require('path');
+let RateLimit = require('express-rate-limit');
 let sassMiddleware = require('node-sass-middleware');
 
 let index = require('./controllers/index');
@@ -64,9 +65,18 @@ app.use(cookieSession(
     }
 ));
 app.use(helmet());
+app.use(new RateLimit(
+    {
+        windowMs: 15*60*1000,
+        max: 100,
+        delayMs: 0,
+        message: "Too many ..."
+    }
+));
 
 app.use("/", index);
 app.use("/users", users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
