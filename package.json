@@ -1,0 +1,34 @@
+{
+  "name": "stat-server",
+  "version": "0.0.1",
+  "author": "TT <ttomczyk@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "check-sec-nsp": "nsp check",
+    "check-sec-snyk": "snyk test",
+    "test": "snyk test"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "compression": "^1.7.2",
+    "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "express": "~4.16.3",
+    "hbs": "~4.0.1",
+    "helmet": "^3.12.0",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "^0.9.8",
+    "serve-favicon": "~2.4.5",
+    "typescript": "^2.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "nsp": "^3.2.1",
+    "snyk": "^1.70.2"
+  }
+}
